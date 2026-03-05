@@ -1,1 +1,11 @@
-{\n  "name": "atlas",\n  "version": "1.0.0",\n  "description": "A project for ATLAS.",\n  "main": "index.js",\n  "scripts": {\n    "test": "echo 'Error: no test specified' && exit 1"\n  },\n  "author": "arhamhmulani7podar-pixel",\n  "license": "ISC"\n}
+{
+  "name": "atlas",
+  "version": "1.0.0",
+  "description": "A project for ATLAS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1"
+  },
+  "author": "arhamhmulani7podar-pixel",
+  "license": "ISC"
+}
