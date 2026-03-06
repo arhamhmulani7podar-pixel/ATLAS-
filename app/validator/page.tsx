@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import type { ValidationResult } from '@/lib/aiEngine';
 
 export default function Validator() {
   const [idea, setIdea] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ValidationResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -14,6 +15,12 @@ export default function Validator() {
     setLoading(true);
     setError('');
     setResult(null);
+
+    if (idea.trim().length < 20) {
+      setError('Please describe your idea in at least 20 characters.');
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch('/api/validate', {
@@ -29,8 +36,8 @@ export default function Validator() {
       }
 
       setResult(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred');
     } finally {
       setLoading(false);
     }
