@@ -11,18 +11,14 @@ export interface ValidationResult {
   weaknesses?: string[];
 }
 
-if (!process.env.OPENAI_API_KEY) {
-  console.warn('Warning: OPENAI_API_KEY environment variable is not set.');
-}
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export async function validateIdea(idea: string): Promise<ValidationResult> {
   if (!process.env.OPENAI_API_KEY) {
     throw new Error('OPENAI_API_KEY environment variable is not set');
   }
+
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
 
   const completion = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
