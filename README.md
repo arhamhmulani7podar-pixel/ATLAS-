@@ -171,7 +171,7 @@ Validates a startup idea and returns analysis.
 2. **Frontend validates input** and shows loading state
 3. **Sends POST request to /api/validate**
 4. **Backend calls OpenAI API** with structured prompt
-5. **Claude analyzes the idea** across 6 key dimensions
+5. **GPT-4o-mini analyzes the idea** across 6 key dimensions
 6. **Returns structured JSON** with scores and analysis
 7. **Frontend renders results** in beautiful dashboard cards
 
